@@ -95,7 +95,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixin";
-
+  // @import "../../common/stylus/style.css ";
   .header
     position: relative
     color: #fff
