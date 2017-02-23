@@ -38,7 +38,9 @@ export default {
   },
   created() {
     console.log(this.food);
-    console.log(this.food);
+        console.log(this.food);
+            console.log(this.food);
+                console.log(this.food);
   }
 };
 </script>
