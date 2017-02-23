@@ -38,10 +38,6 @@ export default {
   },
   created() {
     console.log(this.food);
-        console.log(this.food);
-            console.log(this.food);
-                console.log(this.food);
-                小军哈哈哈哈
   }
 };
 </script>
