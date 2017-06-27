@@ -137,7 +137,7 @@
   }
 };
 </script>
-<style lang="stylus" rel="type/stylus">
+<style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixin.styl"
   .goods
     position:absolute

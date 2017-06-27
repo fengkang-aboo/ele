@@ -48,10 +48,26 @@ export default {
     .cart-decrease
       display: inline-block
       padding: 6px
-      transition:all 0.4s linear
       line-height:24px
       font-size:24px
       color:rgb(0,160,220)
+      // transition: all 0.4 linear
+      &.move-transition
+        // opacity: 1
+        transform: transition3D(0, 0, 0)
+        .inner
+          display:inline-block
+          transition:all 0.4s linear
+          line-height:24px
+          font-size:24px
+          color:rgb(0,160,220)
+          transition: all 0.4 linear
+          transform: rotate(0)
+      &.move-entet,&.move-leave
+        // opacity: 0
+        // transform: transition3D(24px,0,0)
+        .inner
+          // transform: rotate(180deg)
     .cart-count
       display:inline-block
       vertical-align:top

@@ -29,38 +29,40 @@
     <div class="background">
       <img :src="seller.avatar" width="100%" height="100%" alt="">
     </div>
-    <div class="mask" v-show="mask" :transition="'fade'">
-      <div class="mask-wrapper cf">
-        <div class="mask-main">
-          <h1 class="name">{{seller.name}}</h1>
-          <div class="star-wrapper">
-            <star :size="48" :score="seller.score"></star>
-          </div>
-          <div class="title">
-            <div class="line"></div>
-            <div class="text">优惠信息</div>
-            <div class="line"></div>
-          </div>
-          <ul v-if="seller.supports" class="supports">
-            <li class="support-item" v-for="(item, $index) in seller.supports">
-              <span class="icon" :class="classMap[seller.supports[$index].type]"></span>
-              <span class="text">{{seller.supports[$index].description}}</span>
-            </li>
-          </ul>
-          <div class="title">
-            <div class="line"></div>
-            <div class="text">商家公告</div>
-            <div class="line"></div>
-          </div>
-          <div class="bulletin">
-            <p class="bulletin-text">{{seller.bulletin}}</p>
+    <transition name="fade">
+      <div class="mask" v-show="mask">
+        <div class="mask-wrapper cf">
+          <div class="mask-main">
+            <h1 class="name">{{seller.name}}</h1>
+            <div class="star-wrapper">
+              <star :size="48" :score="seller.score"></star>
+            </div>
+            <div class="title">
+              <div class="line"></div>
+              <div class="text">优惠信息</div>
+              <div class="line"></div>
+            </div>
+            <ul v-if="seller.supports" class="supports">
+              <li class="support-item" v-for="(item, $index) in seller.supports">
+                <span class="icon" :class="classMap[seller.supports[$index].type]"></span>
+                <span class="text">{{seller.supports[$index].description}}</span>
+              </li>
+            </ul>
+            <div class="title">
+              <div class="line"></div>
+              <div class="text">商家公告</div>
+              <div class="line"></div>
+            </div>
+            <div class="bulletin">
+              <p class="bulletin-text">{{seller.bulletin}}</p>
+            </div>
           </div>
         </div>
+        <div class="mask-close" @click="closeMask">
+          X
+        </div>
       </div>
-      <div class="mask-close" @click="closeMask">
-        X
-      </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -207,13 +209,11 @@
       overflow: auto
       backdrop-filter: blur(10px)
       background: rgba(7,17,27,0.8)
-      &.fade-transition
-        transition: all 5s ease;
-        opacity: 1
-        background: rgba(7,17,27,0.8)
-      &.fade-enter, &.fade-leave
+      &.fade-enter-active, &.fade-leave-active
+        transition: all .5s
+      &.fade-enter, &.fade-leave-active
         opacity: 0
-        background: rgba(7,17,27,0)
+        background: rgba(7, 17, 27, 0)
       .mask-wrapper
         min-height: 100%
         width: 100%
